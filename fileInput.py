@@ -35,13 +35,6 @@ def parseFasta(file_path):
     return final_genes
 
 
-#create a definition to get the Key value for the dictionary
-def GetKey(val):
-   for key, value in dictA.items():
-      if val == value:
-         return key
-      return "key doesn't exist"
-
 #create a definition to take the parsed file from the Phage,
 #and pull the coding sequence from the gene before breaking it into a list
 #of codons
