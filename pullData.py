@@ -4,7 +4,7 @@
 import os
 
 
-def file parse(files):
+def fileParse(files):
     file = open(files, 'r')
     fsplit = f.read().strip().split('>')
     genelist = {}
