@@ -40,8 +40,14 @@ def parseFasta(file_path):
 #of codons
 def phageCDS(phageGeneList):
     for gene in phageGeneList:
-        codingseq = GetKey(gene)
-        #create a list of the codons present in this gene
+        codingseq = phageGeneList.get(gene)
         codonlist = [codingseq[i:i+3] for i in range(0, len(codingseq), 3)]
-        #loop through the codon list 
-        for j in codonlist:
+        return codonlist
+            
+
+
+
+# Test
+i = 'Phage.txt'
+phageGenes = parse(i)
+print(phageCDS(phageGenes))
