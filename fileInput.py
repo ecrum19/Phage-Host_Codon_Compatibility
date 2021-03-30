@@ -41,8 +41,11 @@ def parseFasta(file_path):
 def phageCDS(phageGeneList):
     for gene in phageGeneList:
         codingseq = phageGeneList.get(gene)
+        #create a codon list with each of the codons in the gene
         codonlist = [codingseq[i:i+3] for i in range(0, len(codingseq), 3)]
-        return codonlist
+        for item in codonlist:
+            #loop through the codon list and add them to a dictionary?? 
+            #Work with Feras on this part!
             
 
 
