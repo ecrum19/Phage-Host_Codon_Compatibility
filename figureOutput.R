@@ -4,8 +4,10 @@ datatable <- read.table(file = 'phage_host_codon_correlation.txt', header = FALS
 #rename the columns in the data table
 colnames(datatable) <- c("Gene", "Corr")
 
-#use ggplot to create the box plot
+#download the ('ggplot2') package
 library(ggplot2)
+
+#use ggplot to create the box plot
 dev <- ggplot(datatable, aes(y = Corr, x = "")) + geom_boxplot() + coord_flip() + ylab("Codon Correlation") + xlab('')
 
 #save the file as a PNG
