@@ -14,7 +14,7 @@ Pandas -- https://pandas.pydata.org/
 SciPy -- https://scipy.org/install.html
 
 
-## **Instructions**
+## **Instructions:**
 
 1. Download all files into a directory
 
