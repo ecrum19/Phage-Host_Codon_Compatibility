@@ -11,4 +11,4 @@ library(ggplot2)
 dev <- ggplot(datatable, aes(y = Corr, x = "")) + geom_boxplot() + coord_flip() + ylab("Codon Correlation") + xlab('')
 
 #save the file as a PNG
-dev.print(file="corrPlot.png", device=png, width=800)
+dev.print(file = "corrPlot.png", device = png, width = 800)
