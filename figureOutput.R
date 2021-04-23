@@ -1,14 +1,26 @@
-# read in the file (phage host codon correlation) to a data table (and remove the first four lines)
-datatable <- read.table(file = 'phage_host_codon_correlation.txt', header = FALSE, sep = '\t', skip = 4)
+packages <- c("ggplot2", "optparse")
+install.packages(setdiff(packages, rownames(installed.packages())), repos = "http://cran.us.r-project.org")  
+library("optparse")
+library("ggplot2")
 
-#rename the columns in the data table
-colnames(datatable) <- c("Gene", "Corr")
+option_list = list(
+  make_option(c("-p", "--phageacc"), type="character", default=NULL, help="phage query accession", metavar="character")
+);
 
-#download the ('ggplot2') package
-library(ggplot2)
+opt_parser = OptionParser(option_list=option_list);
+opt = parse_args(opt_parser);
 
-#use ggplot to create the box plot
-dev <- ggplot(datatable, aes(y = Corr, x = "")) + geom_boxplot() + coord_flip() + ylab("Codon Correlation") + xlab('')
+cwd <- getwd()
 
-#save the file as a PNG
-dev.print(file = "corrPlot.png", device = png, width = 800)
+figure<-function(phageacc)
+{
+  file <- paste(cwd, '/phage_host_codon_correlation.txt', sep='')
+  data <- read.table(file = file, header = FALSE, sep = '\t', skip = 4)
+  colnames(data) <- c("Gene", "Corr")
+  data
+  ggplot(data, aes(y = Corr, x = '')) + geom_violin(trim=FALSE, fill="gray") + ylab("Codon Correlation") + 
+    xlab(phageacc) + geom_boxplot(width=0.1) + theme_classic()
+  ggsave(paste(cwd, "/phage_gene_cc.png", sep=''))
+}
+
+figure(opt$phageacc)

@@ -14,16 +14,12 @@ phcc.add_argument('-s', '--subject', nargs='?', default='CP014272.1',
 phcc.add_argument('-q', '--query', nargs='?', default='J02459.1',
                   help='"-q" flag specifies the GenBank accession or local CDS file of the phage to be used.')
 
-phcc.add_argument('-hegs', '--number_hegs', nargs='?', default='40',
-                  help='"-hegs" flag specifies the number of Highly Expressed Genes to be used.')
 
 args = phcc.parse_args()
 bacteria = vars(args)['subject']
 print("Using %s for the bacterial input" % bacteria)
 phage = vars(args)['query']
 print("Using %s for the phage input" % phage)
-hegs = vars(args)['number_hegs']
-print("Using %s of the Bacteria's HEGs" % hegs)
 
 # Keep track of current directory
 cwd = os.getcwd()
@@ -331,6 +327,7 @@ def readPhageCodonFeqs(phagef):
     pcodon_nums = []
     codons = []
 
+    tracker = False
     c = 0
     for r in p_s:
         if (c % 2) == 0:
@@ -351,7 +348,9 @@ def readPhageCodonFeqs(phagef):
         curr_nums = []
 
         if len(cs) > 64:
-            print('Ran into an abnoraml codon or two ... see output file for more details.')
+            if not tracker:
+                print('Ran into an abnoraml codon or two ...')
+                tracker = True
             bcodons = []
             while len(cs) > 64:
                 bcodons.append(cs[-1])
@@ -371,8 +370,6 @@ def readPhageCodonFeqs(phagef):
 def calculation(bcodons, bname, pcodons, pgenes, abnormal_cod):
     out = open('phage_host_codon_correlation.txt', 'w')
     out.write('%s\t%s\n' % (bname, phage))
-    if len(abnormal_cod) > 0:
-        out.write('(see end of file for abnormal codon information)\n')
 
     def genes():
         for gs in range(len(pcodons) - 1):
@@ -392,25 +389,33 @@ def calculation(bcodons, bname, pcodons, pgenes, abnormal_cod):
 
         globcorr = stats.pearsonr(bcodons, pglobcodons)[0]
         out.write('\n%f\n' % globcorr)
-        return pglobcodons
+        return pglobcodons, globcorr
 
-    all_phage_codons = allgenes()
+    all_phage_codons, globalcorr = allgenes()
     genes()
+
     if len(abnormal_cod) > 0:
-        out.write('\n\n\nAbnormal Codon Info:\n')
+        prob = open('AbnormalCodonReport.txt', 'w')
+        prob.write('Abnormal Codon Info:\n')
         frac_num = str(len(abnormal_cod))
         frac_denom = str(int(sum(all_phage_codons) + len(abnormal_cod)))
-        out.write('The abnormal codons accounted for %s/%s of all phage codons used in the codon correlation calculation.\n\n' % (frac_num, frac_denom))
+        prob.write('\nThe abnormal codons accounted for %s/%s of all phage codons used in the codon correlation calculation.\n\n' % (frac_num, frac_denom))
         for key in abnormal_cod:
-            out.write('Abnormal codon(s): %s found in phage gene: %s\n' % (key, abnormal_cod[key]))
-    out.close()
+            prob.write('Abnormal codon(s): %s found in phage gene: %s\n' % (key, abnormal_cod[key]))
+        prob.close()
 
+    out.close()
+    return globalcorr
 
 bact, bnums = readBactCodonFeqs('bacteriaHEGCodons.txt')
 phage_genes, pnums, abcs = readPhageCodonFeqs('phageGeneCodons.txt')
-calculation(bnums, bact, pnums, phage_genes, abcs)
+globalcorr = calculation(bnums, bact, pnums, phage_genes, abcs)
 
 if not error:
-    print("\nAll results can be found in a file named 'phage_host_codon_correlation.txt' :)")
+    if len(abcs) > 0:
+        print("For information detailing any abnormal codons see 'AbnormalCodonReport.txt'")
+    os.system('\nRscript figureOutput.R -p %s' % phage)
+    print("\nAll results can be found in a file named 'phage_host_codon_correlation.txt' :)\n")
+    print("Overall, the global correlation coefficient was %.3f, see 'phage_gene_cc.png' for summary of individual gene correlations." % round(globalcorr, 3))
 else:
     print("\nThere was an error with one of the input files :(")
