@@ -24,28 +24,19 @@ SciPy -- https://scipy.org/install.html
         
         Arguments:
         
-        -s AA012345.1    (Accession of bacterial genome or file path to bacterial CDS fasta file)
-        -q A01234.1      (Accession of phage genome or file path to phage CDS fasta file)
+        -s AA012345.1    (RefSeq Accession of bacterial genome or file path to bacterial CDS fasta file)
+        -q A01234.1      (RefSeq Accession of phage genome or file path to phage CDS fasta file)
 
 
 **Files used for testing:**
     
-    Bacteria (Bacteria.txt) -- E. coli K12 strain C3026 (GCF_001559675.1); Accession: CP014272.1
-    Positive Control Phage (PCPhage.txt) -- Escherichia phage lambda; Accession: J02459.1
-    Negative Control Phage (NCPhage.txt) -- Emiliania huxleyi virus 99B1; Accession: FN429076.1
+    Bacteria 1 (ECBacteria.txt) -- E. coli K12 strain C3026; RefSeq Accession: CP014272.1
+    Bacteria 2 (SPBacteria.txt -- Streptococcus pneumoniae AP200; RefSeq Accession CP002121.1
+    Phage 1 (ECPhage.txt) -- Escherichia phage lambda; RefSeq Accession: J02459.1
+    Phage 2 (LPPhage.txt) -- Lactobacillus plantarum bacteriophage LP65; RefDeq Accession: AY682195.1
 
+**Test Runs:**
 
-**Testing**
-
-1) Try to run wrapper.py with the files provided 
-
-        python3 wrapper.py -s Bacteria.txt -q PCPhage.txt
-        python3 wrapper.py -s Bacteria.txt -q NCPhage.txt
-
-2) Try to run wrapper.py using record accessions
-
-        python3 wrapper.py -s CP014272.1 -q J02459.1
-
-3) Go on NCBI, find a random bacterial + phage sequence and run them (using accessions would be easiest)
-
-        python3 wrapper.py -s XXXX -q XXXX
+    Positive Control: python3 wrapper.py -s CP014272.1 -q J02459.1
+    Negative Control (Bacteria): python3 wrapper.py -s CP002121.1 -q J02459.1
+    Negative Control (Phage): python3 wrapper.py -s CP014272.1 -q AY682195.1
