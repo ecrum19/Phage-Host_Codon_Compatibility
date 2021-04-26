@@ -20,7 +20,7 @@ SciPy -- https://scipy.org/install.html
 
 2. Navigate to the directory containing the the downloaded repo files
 
-3. Execute the command: python3 wrapper.py -s XXX -q XXX
+3. Execute the command: python3 phcc.py -s XXX -q XXX
         
         Arguments:
         
@@ -37,6 +37,6 @@ SciPy -- https://scipy.org/install.html
 
 **Test Runs:**
 
-    Positive Control: python3 wrapper.py -s CP014272.1 -q J02459.1
-    Negative Control (Bacteria): python3 wrapper.py -s CP002121.1 -q J02459.1
-    Negative Control (Phage): python3 wrapper.py -s CP014272.1 -q AY682195.1
+    Positive Control: python3 phcc.py -s CP014272.1 -q J02459.1
+    Negative Control (Bacteria): python3 phcc.py -s CP002121.1 -q J02459.1
+    Negative Control (Phage): python3 phcc.py -s CP014272.1 -q AY682195.1
