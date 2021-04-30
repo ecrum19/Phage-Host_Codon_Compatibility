@@ -42,7 +42,7 @@
     Phage 1 (Lambda_phage.txt) -- Escherichia phage lambda; RefSeq Accession: J02459.1
     Phage 2 (Lacto_phage.txt) -- Lactobacillus plantarum bacteriophage LP65; RefDeq Accession: AY682195.1
 
-###For Test Runs:
+### For Test Runs:
 
     Accession Based Tests:
     Positive Control: python3 phcc.py -s CP014272.1 -q J02459.1
