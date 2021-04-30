@@ -30,13 +30,19 @@ SciPy -- https://scipy.org/install.html
 
 **Files used for testing:**
     
-    Bacteria 1 (ECBacteria.txt) -- E. coli K12 strain C3026; RefSeq Accession: CP014272.1
-    Bacteria 2 (SPBacteria.txt -- Streptococcus pneumoniae AP200; RefSeq Accession CP002121.1
-    Phage 1 (ECPhage.txt) -- Escherichia phage lambda; RefSeq Accession: J02459.1
-    Phage 2 (LPPhage.txt) -- Lactobacillus plantarum bacteriophage LP65; RefDeq Accession: AY682195.1
+    Bacteria 1 (Ecoli_bacteria.txt) -- E. coli K12 strain C3026; RefSeq Accession: CP014272.1
+    Bacteria 2 (Strep_bacteria.txt) -- Streptococcus pneumoniae AP200; RefSeq Accession CP002121.1
+    Phage 1 (Lambda_phage.txt) -- Escherichia phage lambda; RefSeq Accession: J02459.1
+    Phage 2 (Lacto_phage.txt) -- Lactobacillus plantarum bacteriophage LP65; RefDeq Accession: AY682195.1
 
-**Test Runs:**
+**For Test Runs:**
 
+    Accession Based Tests:
     Positive Control: python3 phcc.py -s CP014272.1 -q J02459.1
     Negative Control (Bacteria): python3 phcc.py -s CP002121.1 -q J02459.1
     Negative Control (Phage): python3 phcc.py -s CP014272.1 -q AY682195.1
+    
+    File Based Tests:
+    Positive Control: python3 phcc.py -s Ecoli_bacteria.txt -q Lambda_phage.txt
+    Negative Control (Bacteria): python3 phcc.py -s Strep_bacteria.txt -q Lambda_phage.txt
+    Negative Control (Phage): python3 phcc.py -s Ecoli_bacteria.txt -q Lacto_phage.txt
