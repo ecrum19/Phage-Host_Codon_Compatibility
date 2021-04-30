@@ -142,7 +142,7 @@ def phageCodons(phageGeneDict):
 
 # Driver Code (Phage)
 error = False
-print("\nFetching the %s's CDS..." % phage)
+print("\nFetching the phage's (%s) CDS..." % phage)
 yap = getFasta(phage)
 if 'Not a' in yap and '/' in phage:
     phagedict = parseLocalFasta(phage)
@@ -263,7 +263,7 @@ def bacteriaCodons(bacteriaGeneDict):
 
 
 # Driver Code (Bacteria)
-print("\nFetching the bacteria's CDS...")
+print("\nFetching the bacteria's (%s) CDS..." % bacteria)
 file_tracker = False
 yab = getFasta(bacteria)
 if 'Not a' in yab and '/' in bacteria:
