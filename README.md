@@ -3,11 +3,11 @@ Repo for Phage-Host Codon Compatibility Pipeline
 
 ## Dependenices:
 
+R -- https://www.r-project.org/
+
 Pyhton 3 -- https://www.python.org/downloads/
 
 BioPython -- https://biopython.org/wiki/Download
-
-R -- https://www.r-project.org/
 
 Pandas -- https://pandas.pydata.org/
 
