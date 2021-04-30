@@ -4,21 +4,21 @@
 
 **Software:**
 
-Linux
+* Linux
 
-R -- https://www.r-project.org/
+* R -- https://www.r-project.org/
 
-Pyhton 3 -- https://www.python.org/downloads/
+* Pyhton 3 -- https://www.python.org/downloads/
 
 
 
 **Python Packages:**
 
-BioPython -- https://biopython.org/wiki/Download
+* BioPython -- https://biopython.org/wiki/Download
 
-Pandas -- https://pandas.pydata.org/
+* Pandas -- https://pandas.pydata.org/
 
-SciPy -- https://scipy.org/install.html
+* SciPy -- https://scipy.org/install.html
 
 
 ## **Instructions:**
