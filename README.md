@@ -2,10 +2,15 @@
 
 ## Dependenices:
 
+**Software:**
+Linux
+
 R -- https://www.r-project.org/
 
 Pyhton 3 -- https://www.python.org/downloads/
 
+
+**Python Packages:**
 BioPython -- https://biopython.org/wiki/Download
 
 Pandas -- https://pandas.pydata.org/
