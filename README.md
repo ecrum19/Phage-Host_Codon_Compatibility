@@ -62,12 +62,9 @@
 Below are the output files (in order of production by the pipeline)
 
 **Intermediate Files:**
-
 * If Accession input is used (for phage and/or bacteria):
     * Input_Accession.fasta -- CDS fasta file created from GenBank record
-  
 * phageGeneCodons.txt -- Codon frequencies for every phage gene from CDS fasta (either inputted or created from provided accession)
-
 * matches -- BLASTx hits returned by DIAMOND (bacterial CDSs as query, provided db of known HEG proteins as subject)
     * Format of file: stitle bitscore qtitle
 * HEGS.fasta -- List of highly expressed genes (HEGs) identified from the bacteria via the matches file
@@ -75,11 +72,8 @@ Below are the output files (in order of production by the pipeline)
 * nohup.out -- Unwanted, verbose print statements from running wget and DIAMOND
 
 **Informative Files:**
-
 * AbnormalCodonReport.txt -- (Only produced if abnormal phage codons are found) Information about codons containing non-conclusive bases (anything not A,C,G,T)
-
 * phage_gene_cc.png -- Visual violin/box plot representation of Phage gene codon correlations
-
 * phage_host_codon_correlation.txt -- Summary of pipeline results
     
       Format: 
