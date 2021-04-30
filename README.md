@@ -16,7 +16,7 @@ SciPy -- https://scipy.org/install.html
 
 ## **Instructions:**
 
-1. Download all files into a directory
+1. Download all files into a directory (Use command: git clone https://github.com/ecrum19/Phage-Host_Codon_Compatibility.git)
 
 2. Navigate to the directory containing the the downloaded repo files
 
