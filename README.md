@@ -21,6 +21,13 @@
 * SciPy -- https://scipy.org/install.html
 
 
+**R Packages:**
+
+* Optparse -- https://cran.r-project.org/web/packages/optparse/index.html
+
+* ggplot2 -- https://cran.r-project.org/web/packages/ggplot2/index.html
+
+
 ## **Instructions:**
 
 1. Download all files into a directory (Use command: git clone https://github.com/ecrum19/Phage-Host_Codon_Compatibility.git)
