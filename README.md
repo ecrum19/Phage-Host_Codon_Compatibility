@@ -3,28 +3,20 @@
 ## Dependenices:
 
 **Software:**
-
 * Linux
-
 * R -- https://www.r-project.org/
-
 * Pyhton 3 -- https://www.python.org/downloads/
 
 
 
 **Python Packages:**
-
 * BioPython -- https://biopython.org/wiki/Download
-
 * Pandas -- https://pandas.pydata.org/
-
 * SciPy -- https://scipy.org/install.html
 
 
 **R Packages:**
-
 * Optparse -- https://cran.r-project.org/web/packages/optparse/index.html
-
 * ggplot2 -- https://cran.r-project.org/web/packages/ggplot2/index.html
 
 
